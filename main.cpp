@@ -1,5 +1,5 @@
 #include "Resources/external_lib.h"
-#include "Resources/DataGenerator.cpp"
+#include "Algorithms/CountingSort.cpp"
 using namespace std;
 
 int main(int argc, char* argv[]) {
