@@ -7,8 +7,6 @@
 
 class Sort {
 private:
-    int* array;
-    int size;
     char* file_input;
 
     void LoadData() {
@@ -25,6 +23,9 @@ private:
     }
 
 protected:
+    int* array;
+    int size;
+
     void Handle(int &count_compare) {
 
     }
