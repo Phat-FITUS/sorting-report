@@ -26,9 +26,7 @@ protected:
     int* array;
     int size;
 
-    void Handle(int &count_compare) {
-
-    }
+    virtual void Handle(int &count_compare) = 0;
 
 public:
     Sort() {
