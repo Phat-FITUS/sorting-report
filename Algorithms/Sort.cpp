@@ -7,8 +7,6 @@
 
 class Sort {
 private:
-    int* array;
-    int size;
     char* file_input;
 
     void LoadData() {
@@ -25,9 +23,10 @@ private:
     }
 
 protected:
-    void Handle(int &count_compare) {
+    int* array;
+    int size;
 
-    }
+    virtual void Handle(int &count_compare) = 0;
 
 public:
     Sort() {
