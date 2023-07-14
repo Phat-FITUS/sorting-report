@@ -42,7 +42,7 @@ class MergeSort : public Sort {
             delete[] subRight;
         }
         void m_sort(int left, int right, int &countCompare) {
-            if(left >= right) return;
+            if(++countCompare && left >= right) return;
 
             int mid = (left + right)/2;
             m_sort(left, mid,countCompare);
