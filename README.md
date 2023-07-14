@@ -77,3 +77,37 @@ public:
 ```
 
 > Remember that, you have to replace the `Name` with your algorithm's name.
+
+### Building, Running and Testing
+
+By the simply organized files and folder, this project can be built and run by the following command:
+
+```bash
+g++ *.cpp -o main
+./main
+```
+
+> After the `./main` execution command, you can add any command line arguments such as `./main sorting name` which will be handled later in code.
+
+You can easily test your sorting algorithm by changing the algorithm name in `main.cpp`
+
+```C++
+CountingSort sort;
+sort.Run(time, compare);
+```
+
+If you want to test another algorithm like `Merge sort`, you can change it to
+
+```C++
+MergeSort sort;
+sort.Run(time, compare);
+```
+
+After running, you will receive the file `output.txt` which stores the element of file input after sorted. Just open it to check if your algorithm is right. Moreover, the terminal also tell you the summary of time and number of comparison. For example:
+
+```bash
+Result stored in output.txt
+The algorithm executed in 0 miliseconds with 403 comparisons
+```
+
+Happy coding!
