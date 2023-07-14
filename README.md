@@ -33,7 +33,7 @@ git pull
 
 >Where `name` is your last name. For example, my name is Le Tan Phat (9.7 score in Programming Technique) would type `git checkout phat`
 
-Then, let's implement algorithm with full enthusiasm.  
+Then, let's implement algorithm with full enthusiasm.
 
 Finally, you can push your code to the Github with the following command
 
@@ -87,9 +87,10 @@ g++ *.cpp -o main
 ./main
 ```
 
-> After the `./main` execution command, you can add any command line arguments such as `./main sorting name` which will be handled later in code.
+> After the `./main` execution command, you can add any command line arguments such as `./main -a sorting-name` which will be handled later in code.
 
 You can easily test your sorting algorithm by changing the algorithm name in `main.cpp`
+
 
 ```C++
 CountingSort sort;
@@ -101,6 +102,12 @@ If you want to test another algorithm like `Merge sort`, you can change it to
 ```C++
 MergeSort sort;
 sort.Run(time, compare);
+```
+
+Run with test mode by
+
+```bash
+./main -test
 ```
 
 After running, you will receive the file `output.txt` which stores the element of file input after sorted. Just open it to check if your algorithm is right. Moreover, the terminal also tell you the summary of time and number of comparison. For example:
