@@ -40,7 +40,6 @@ protected:
 
         for (int i = 0; ++count_compare && i < size; i++) {
             count[array[i] - min_value]++;
-            count_compare++;
         }
 
         for (int i = 1; ++count_compare && i < range; i++) {
@@ -50,7 +49,6 @@ protected:
         for (int i = size - 1; ++count_compare && i >= 0; i--) {
             output[count[array[i] - min_value] - 1] = array[i];
             count[array[i] - min_value]--;
-            count_compare++;
         }
 
         for (int i = 0; ++count_compare && i < size; i++) {
