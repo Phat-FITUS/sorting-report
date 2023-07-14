@@ -22,6 +22,18 @@ private:
         fclose(file);
     }
 
+    void SaveData() {
+        FILE* file = fopen("output.txt", "wt");
+
+        fprintf(file, "%d\n", this->size);
+
+        for (int i = 0; i < this->size; i++) {
+            fprintf(file, "%d ", this->array[i]);
+        }
+
+        fclose(file);
+    }
+
 protected:
     int* array;
     int size;
@@ -34,7 +46,7 @@ public:
         this->size = 0;
 
         file_input = new char[20];
-        strcpy(file_input, "/Inputs/input.txt");
+        strcpy(file_input, "Inputs/input.txt");
         file_input[19] = '\0';
 
         this->LoadData();
@@ -62,6 +74,8 @@ public:
         auto duration = std::chrono::duration_cast<miliseconds>(stop - start);
 
         running_time = duration.count();
+
+        this->SaveData();
     }
 
     ~Sort() {
