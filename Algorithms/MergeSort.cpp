@@ -13,7 +13,7 @@ class MergeSort : public Sort {
             int * subRight = new int[subRightCount];
 
             for(int i = 0; ++countCompare && i < subLeftCount; i++) subLeft[i] = array[left+i];
-            for(int i = 0; ++countCompare && i < subLeftCount; i++) subRight[i] = array[mid+1+i];
+            for(int i = 0; ++countCompare && i < subRightCount; i++) subRight[i] = array[mid+1+i];
 
             int l=0, r=0,i=left;
             while(++countCompare && l < subLeftCount && ++countCompare && r < subRightCount) {
@@ -42,7 +42,7 @@ class MergeSort : public Sort {
             delete[] subRight;
         }
         void m_sort(int left, int right, int &countCompare) {
-            if(left >= right) return;
+            if(++countCompare && left >= right) return;
 
             int mid = (left + right)/2;
             m_sort(left, mid,countCompare);
