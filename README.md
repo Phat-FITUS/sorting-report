@@ -91,7 +91,6 @@ g++ *.cpp -o main
 
 You can easily test your sorting algorithm by changing the algorithm name in `main.cpp`
 
-
 ```C++
 CountingSort sort;
 sort.Run(time, compare);
