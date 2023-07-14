@@ -1,9 +1,9 @@
-#ifndef NAMESORT
-#define NAMESORT
+#ifndef SHAKERSORT
+#define SHAKERSORT
 
 #include "Sort.cpp"
 
-class NameSort : public Sort {
+class ShakerSort : public Sort {
 private:
     //Other required function here
 
