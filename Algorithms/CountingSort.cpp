@@ -53,9 +53,7 @@ protected:
 
         for (int i = 0; ++count_compare && i < size; i++) {
             array[i] = output[i];
-            cout << output[i] << ' ';
         }
-        cout << '\n';
 
         delete[] count;
         delete[] output;
