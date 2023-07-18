@@ -61,7 +61,6 @@ class FlashSort : public Sort {
             int count = 0;
             while (++countCompare && nmove < size - 1)
             {
-                cout << j << " " << k<<endl;
                 while (++countCompare && j > l[k] - 1)
                 {
                     j++;

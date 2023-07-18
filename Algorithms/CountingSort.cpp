@@ -58,6 +58,7 @@ protected:
         delete[] count;
         delete[] output;
     }
+
 public:
     using Sort::Sort;
 };

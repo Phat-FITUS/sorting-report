@@ -3,41 +3,43 @@
 
 #include "Sort.cpp"
 
-class ShakerSort : public Sort {
-private:
-    //Other required function here
-
+class ShakerSort : public Sort
+{
 protected:
-    void Handle(int &count_compare) {
-    	int left  = 0;
+	void Handle(int &count_compare)
+	{
+		int left = 0;
 		int right = size - 1;
 		int flag = 0;
-        while (++count_compare && left < right)
-	{
-		for (int i = left; ++count_compare && i < right; i++)
+
+		while (++count_compare && left < right)
 		{
-			if (array[i + 1] < array[i])
+			for (int i = left; ++count_compare && i < right; i++)
 			{
-				++count_compare;
-				swap(array[i+1], array[i]);
-				flag = i;
+				if (++count_compare && array[i + 1] < array[i])
+				{
+					swap(array[i + 1], array[i]);
+					flag = i;
+				}
 			}
-		}
-		right = flag;
-		for (int i = right; ++count_compare && i > left; i--)
-		{
-			if (array[i] < array[i - 1])
+
+			right = flag;
+
+			for (int i = right; ++count_compare && i > left; i--)
 			{
-				++count_compare;
-				swap(array[i], array[i - 1]);
-				flag = i;
+				if (++count_compare && array[i] < array[i - 1])
+				{
+					swap(array[i], array[i - 1]);
+					flag = i;
+				}
 			}
+
+			left = flag;
 		}
-		left = flag;
 	}
-    }
+
 public:
-    using Sort::Sort;
+	using Sort::Sort;
 };
 
 #endif

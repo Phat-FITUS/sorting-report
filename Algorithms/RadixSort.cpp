@@ -46,6 +46,7 @@ protected:
         for (int exp = 1; maxVal / exp > 0; exp *= 10)
             countingSort(exp);
     }
+
 public:
     using Sort::Sort;
 };
