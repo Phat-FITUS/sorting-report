@@ -19,33 +19,27 @@ private:
         for (int i = 0; ++countCompare && i < subRightCount; i++)
             subRight[i] = array[mid + 1 + i];
 
-        int l = 0, r = 0, i = left;
+        int l=0, r=0,i=left;
 
-        while (++countCompare && l < subLeftCount && ++countCompare && r < subRightCount)
-        {
-            if (++countCompare && subLeft[l] <= subRight[r])
-            {
+        while(++countCompare && l < subLeftCount && ++countCompare && r < subRightCount) {
+            if(subLeft[l] <= subRight[r]) {
                 array[i] = subLeft[l];
                 l++;
-            }
-            else
-            {
+            } else {
                 array[i] = subRight[r];
                 r++;
             }
-
+            countCompare++;
             i++;
         }
 
-        while (++countCompare && l < subLeftCount)
-        {
+        while(++countCompare && l < subLeftCount) {
             array[i] = subLeft[l];
             l++;
             i++;
-        }
+        } 
 
-        while (++countCompare && r < subRightCount)
-        {
+        while(++countCompare && r < subRightCount) {
             array[i] = subRight[r];
             r++;
             i++;
@@ -59,21 +53,20 @@ private:
     {
         if (++countCompare && left >= right) return;
 
-        int mid = (left + right) / 2;
+        int mid = (left + right)/2;
 
-        m_sort(left, mid, countCompare);
-        m_sort(mid + 1, right, countCompare);
-        Merge(left, mid, right, countCompare);
+        m_sort(left, mid,countCompare);
+        m_sort(mid+1, right,countCompare);
+        Merge(left,mid,right,countCompare);
     }
 
-protected:
-    void Handle(int &countCompare)
-    {
-        m_sort(0, size - 1, countCompare);
-    }
-
-public:
-    using Sort::Sort;
+    protected:
+        void Handle(int &countCompare) {
+            m_sort(0,size-1,countCompare);
+        }
+        
+    public:
+        using Sort::Sort;
 };
 
 #endif
