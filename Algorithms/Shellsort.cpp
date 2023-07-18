@@ -6,7 +6,7 @@
 class ShellSort : public Sort
 {
 protected:
-    void Handle(int &count_compare)
+    void Handle(ull &count_compare)
     {
         for (int gap = size / 2; ++count_compare && gap > 0; gap = gap / 2)
         {

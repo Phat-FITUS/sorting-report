@@ -5,10 +5,10 @@
 
 class CountingSort : public Sort {
 private:
-    int FindMax(int* start, int* end) {
+    int FindMax(int* start, int* end, ull &count_compare) {
         int max_element = *start;
 
-        for (int* p = start + 1; p != end; p++) {
+        for (int* p = start + 1; ++count_compare && p != end; p++) {
             if (max_element < *p) {
                 max_element = *p;
             }
@@ -17,10 +17,10 @@ private:
         return max_element;
     }
 
-    int FindMin(int* start, int* end) {
+    int FindMin(int* start, int* end, ull &count_compare) {
         int min_element = *start;
 
-        for (int* p = start + 1; p != end; p++) {
+        for (int* p = start + 1; ++count_compare && p != end; p++) {
             if (min_element > *p) {
                 min_element = *p;
             }
@@ -30,9 +30,9 @@ private:
     }
 
 protected:
-    void Handle(int &count_compare) {
-        int max_value = this->FindMax(array, array + size); count_compare += 2 * size;
-        int min_value = this->FindMin(array, array + size); count_compare += 2 * size;
+    void Handle(ull &count_compare) {
+        int max_value = this->FindMax(array, array + size, count_compare);
+        int min_value = this->FindMin(array, array + size, count_compare);
         int range = max_value - min_value + 1;
 
         int* count = new int[range]();

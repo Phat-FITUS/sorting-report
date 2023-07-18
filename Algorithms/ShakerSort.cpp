@@ -6,7 +6,7 @@
 class ShakerSort : public Sort
 {
 protected:
-	void Handle(int &count_compare)
+	void Handle(ull &count_compare)
 	{
 		int left = 0;
 		int right = size - 1;
