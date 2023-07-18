@@ -57,26 +57,24 @@ class FlashSort : public Sort {
             int nmove = 0;
             int j = 0;
             int k = m - 1;
-            int t = 0;
             int flash;
-
+            int count = 0;
             while (++countCompare && nmove < size - 1)
             {
+                cout << j << " " << k<<endl;
                 while (++countCompare && j > l[k] - 1)
                 {
                     j++;
                     k = int(c1*(array[j] - minVal));
                 }
-                flash = array[j];
 
                 if (++countCompare && k < 0) break;
+                flash = j;
 
                 while (++countCompare && j != l[k])
                 {
-                    k = int(c1*(flash - minVal));
-                    int hold = array[t = --l[k]];
-                    array[t] = flash;
-                    flash = hold;
+                    k = int(c1*(array[flash] - minVal));
+                    swap(array[flash], array[--l[k]]);
                     ++nmove;
                 }
             }
