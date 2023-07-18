@@ -4,13 +4,13 @@
 #include "BubbleSort.cpp"
 #include "CountingSort.cpp"
 #include "FlashSort.cpp"
-#include "HeapSort.cpp"
+#include "Heapsort.cpp"
 #include "InsertionSort.cpp"
 #include "MergeSort.cpp"
 #include "QuickSort.cpp"
 #include "RadixSort.cpp"
 #include "SelectionSort.cpp"
 #include "ShakerSort.cpp"
-#include "ShellSort.cpp"
+#include "Shellsort.cpp"
 
 #endif
