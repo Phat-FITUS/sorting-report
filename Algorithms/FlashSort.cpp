@@ -5,7 +5,7 @@
 
 class FlashSort : public Sort {
     private:
-        void InsertionSort(int &countCompare) {
+        void InsertionSort(ull &countCompare) {
             for (int i = 1; ++countCompare && i < size; i++) {
                 int k = i - 1;
                 int key = array[i];
@@ -19,9 +19,9 @@ class FlashSort : public Sort {
                 array[k + 1] = key;
             }
         }
-        
+
     protected:
-        void Handle(int &countCompare) {
+        void Handle(ull &countCompare) {
             int minVal = array[0];
             int max = 0;
             int m = int(0.45 * size);
@@ -81,7 +81,7 @@ class FlashSort : public Sort {
             delete[] l;
             InsertionSort(countCompare);
         }
-        
+
     public:
         using Sort::Sort;
 };

@@ -5,7 +5,7 @@
 
 class QuickSort : public Sort {
     private:
-        int Partition(int left, int right, int &countCompare) {
+        int Partition(int left, int right, ull &countCompare) {
             int l = left, r = right-1, pivot=right;
 
             while(++countCompare && l <= r) {
@@ -24,7 +24,7 @@ class QuickSort : public Sort {
             return l;
         }
 
-        void q_sort(int left, int right, int &countCompare) {
+        void q_sort(int left, int right, ull &countCompare) {
             if(++countCompare && left >= right) return;
             int pivot = Partition(left, right,countCompare);
             q_sort(left,pivot-1,countCompare);
@@ -32,10 +32,10 @@ class QuickSort : public Sort {
         }
 
     protected:
-        void Handle(int &countCompare) {
+        void Handle(ull &countCompare) {
             q_sort(0,size-1,countCompare);
         }
-        
+
     public:
         using Sort::Sort;
 };
