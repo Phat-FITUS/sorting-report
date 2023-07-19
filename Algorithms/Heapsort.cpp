@@ -5,7 +5,7 @@
 
 class HeapSort : public Sort {
 private:
-	void MaxHeapify(int i, int& count_compare)
+	void MaxHeapify(int i, ull& count_compare)
 	{
 		int left = 2*i + 1;
 		int right = 2*i + 2;
@@ -30,7 +30,7 @@ private:
 	}
 
 protected:
-    void Handle(int &count_compare) {
+    void Handle(ull &count_compare) {
        for (int i = size/2; ++count_compare && i >= 0; i--)
 		{
 			MaxHeapify(i, count_compare);

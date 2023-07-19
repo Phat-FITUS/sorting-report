@@ -6,7 +6,7 @@
 class MergeSort : public Sort
 {
 private:
-    void Merge(int left, int mid, int right, int &countCompare)
+    void Merge(int left, int mid, int right, ull &countCompare)
     {
         int subLeftCount = mid - left + 1;
         int subRightCount = right - mid;
@@ -37,7 +37,7 @@ private:
             array[i] = subLeft[l];
             l++;
             i++;
-        } 
+        }
 
         while(++countCompare && r < subRightCount) {
             array[i] = subRight[r];
@@ -49,7 +49,7 @@ private:
         delete[] subRight;
     }
 
-    void m_sort(int left, int right, int &countCompare)
+    void m_sort(int left, int right, ull &countCompare)
     {
         if (++countCompare && left >= right) return;
 
@@ -61,10 +61,10 @@ private:
     }
 
     protected:
-        void Handle(int &countCompare) {
+        void Handle(ull &countCompare) {
             m_sort(0,size-1,countCompare);
         }
-        
+
     public:
         using Sort::Sort;
 };

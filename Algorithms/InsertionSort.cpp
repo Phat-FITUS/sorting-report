@@ -5,7 +5,7 @@
 
 class InsertionSort : public Sort {
 protected:
-    void Handle(int &count_compare) {
+    void Handle(ull &count_compare) {
         for (int i = 0; ++count_compare && i < size; i++)
         {
             int key = array[i];
