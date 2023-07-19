@@ -6,7 +6,7 @@
 class SelectionSort : public Sort
 {
 protected:
-    void Handle(int &count_compare)
+    void Handle(ull &count_compare)
     {
         for (size_t i = 0; ++count_compare && i < size - 1; i++)
         {

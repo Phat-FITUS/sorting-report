@@ -38,7 +38,7 @@ protected:
     int* array;
     int size;
 
-    virtual void Handle(int &count_compare) = 0;
+    virtual void Handle(ull &count_compare) = 0;
 
 public:
     Sort() {
@@ -63,7 +63,7 @@ public:
         this->LoadData();
     }
 
-    void Run(int &running_time, int &count_compare) {
+    void Run(ull &running_time, ull &count_compare) {
         count_compare = 0;
 
         auto start = std::chrono::high_resolution_clock::now();
