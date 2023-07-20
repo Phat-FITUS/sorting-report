@@ -33,11 +33,15 @@ class Comparison : public Mode{
     public:
         void Run(int argc, char* argv[]) {
             this->argv = argv;
-            if(argv[4][0] >= '0' and argv[4][0] <= '9') {
-                cout << "Waiting for phat..." << endl;
-                return;
+            if((int)argv[4][0] >= (int)'0' and (int)argv[4][0] <= (int)'9') {
+                this->input_size = stoi(argv[4]);
+                this->createFileInput(this->input_size, argv[5]+1);
+                this->input_file = argv[5]+1;
+            } else {
+                this->input_file=argv[4];
+                this->input_size = this->getInputSize(this->input_file);
+                cout << "Input size: " << this->input_size << endl;
             }
-            this->input_file=argv[4];
             this->RunSort(argv[2]);
             this->run_time_0 = this->run_time;
             this->number_comparison_0 = this->number_comparison;

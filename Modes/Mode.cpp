@@ -2,8 +2,10 @@
 #define MODE
 
 #include "../Definitions/Datatype.cpp"
+#include "../Definitions/GenerationType.cpp"
 #include "../Definitions/SortAlgorithm.cpp"
 #include "../Algorithms/Sort.h"
+// #include "../Resources/DataGenerator.cpp"
 
 class Mode {
 private:
@@ -13,6 +15,7 @@ protected:
     ull number_comparison;
     Sort *sort;
     char *sortName;
+    char* file_input;
     char* getSortName(char input[]) {
         char * sortName = new char[10];
         int i=0;
@@ -23,6 +26,33 @@ protected:
         sortName[i] = '\0';
         return sortName;
     };
+
+    int getInputSize(char filename[]) {
+        this->file_input = new char[100];
+        strcpy(this->file_input, "Inputs/");
+	    strcat(this->file_input, filename);
+        FILE* file = fopen(this->file_input, "rt");
+        int size;
+        fscanf(file, "%d\n", &size);
+
+        fclose(file);
+        return size;
+    }
+
+    void createFileInput(int size, char filename[]) {
+        GenerationType option;
+        if(strcmp(filename, "rand") == 0) option = Random;
+        else if(strcmp(filename, "sorted") == 0) option = Sorted;
+        else if(strcmp(filename, "reverse") == 0) option = Reverse;
+        else if(strcmp(filename, "nsorted") == 0) option = NearlySorted;
+        char txtfilename[8];
+        int i = 0;
+        while(filename[i] != '\0') {
+            i++;
+        }
+        filename[i] = '.', filename[++i] = 't', filename[++i]='x', filename[++i]='t', filename[++i]='\0';
+        GenerateData(size, (int)option, filename);
+    }
 
     void getSortAlgorithm(const char* fileinput=NULL) {
         if(strcmp(this->sortName, "selection")==0) sort = new SelectionSort(fileinput);
@@ -69,7 +99,8 @@ public:
 
     ~Mode() {
         delete sort;
-        delete[] sortName;
+        delete sortName;
+        delete file_input;
     }
 };
 
