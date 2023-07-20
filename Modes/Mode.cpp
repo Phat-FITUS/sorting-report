@@ -24,7 +24,7 @@ protected:
         return sortName;
     };
 
-    void getSortAlgorithm(const char* fileinput) {
+    void getSortAlgorithm(const char* fileinput=NULL) {
         if(strcmp(this->sortName, "selection")==0) sort = new SelectionSort(fileinput);
         
         else if(strcmp(this->sortName, "insertion")==0) sort = new InsertionSort(fileinput);

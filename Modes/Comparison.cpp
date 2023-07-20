@@ -11,6 +11,12 @@ class Comparison : public Mode{
         char* input_file = NULL;
         int input_size = -1;
         int input_order = -1;
+
+        void RunSort(char *sort) {
+            this->sortName = this->getSortName(sort);
+            this->getSortAlgorithm(this->input_file);
+            this->sort->Run(this->run_time, this->number_comparison);
+        }
     protected:
 
         void ShowResult(char output[] = NULL) {
@@ -32,15 +38,11 @@ class Comparison : public Mode{
                 return;
             }
             this->input_file=argv[4];
-            this->sortName = this->getSortName(argv[2]);
-            this->getSortAlgorithm(this->input_file);
-            sort->Run(this->run_time, this->number_comparison);
+            this->RunSort(argv[2]);
             this->run_time_0 = this->run_time;
             this->number_comparison_0 = this->number_comparison;
             delete this->sort;
-            this->sortName = this->getSortName(argv[3]);
-            this->getSortAlgorithm(this->input_file);
-            sort->Run(this->run_time, this->number_comparison);
+            this->RunSort(argv[3]);
             ShowResult();
         }
 
