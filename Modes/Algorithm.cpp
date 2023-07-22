@@ -2,8 +2,7 @@
 #define ALGORITHM_MODE
 
 #include "Mode.cpp"
-#include <fstream>
-#include <stdio.h>
+
 
 class Algorithm : public Mode{
     protected:
