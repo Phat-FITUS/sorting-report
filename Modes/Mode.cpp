@@ -41,16 +41,28 @@ protected:
 
     void createFileInput(int size, char filename[]) {
         GenerationType option;
-        if(strcmp(filename, "rand") == 0) option = Random;
-        else if(strcmp(filename, "sorted") == 0) option = Sorted;
-        else if(strcmp(filename, "reverse") == 0) option = Reverse;
-        else if(strcmp(filename, "nsorted") == 0) option = NearlySorted;
-        char txtfilename[8];
-        int i = 0;
-        while(filename[i] != '\0') {
-            i++;
-        }
-        filename[i] = '.', filename[++i] = 't', filename[++i]='x', filename[++i]='t', filename[++i]='\0';
+        if(strcmp(filename, "rand") == 0) {
+            option = Random;
+            filename = "input_1.txt";
+            }
+        else if(strcmp(filename, "sorted") == 0) {
+            option = Sorted;
+            filename = "input_2.txt";
+            }
+        else if(strcmp(filename, "reverse") == 0) {
+            option = Reverse;
+            filename = "input_3.txt";
+            }
+        else if(strcmp(filename, "nsorted") == 0) {
+            option = NearlySorted;
+            filename = "input_4.txt";
+            }
+        //char txtfilename[8];
+        //int i = 0;
+        //while(filename[i] != '\0') {
+         //   i++;
+        //}
+        //filename[i] = '.', filename[++i] = 't', filename[++i]='x', filename[++i]='t', filename[++i]='\0';
         GenerateData(size, (int)option, filename);
     }
 
