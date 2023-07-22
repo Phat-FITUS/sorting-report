@@ -17,27 +17,28 @@ class Algorithm : public Mode{
             this->sort->Run(this->run_time, this->number_comparison);
         }
 
-        char* ConvertOrder(char* order) {
-            if(order == "rand"){
-                return "Randomize";
+        char* ConvertOrder(char order[]) {
+           /*if(order == "rand"){
+                return order;
             }
             else if(order == "nsorted"){
-                return "Nearly Sorted";
+                return order;
             }
             else if(order == "sorted"){
-                return "Sorted";
+                return dd"Sorted";
             }
             else{
-                return "Reversed";
-            }
+                return "reversed";
+            }*/
+            return 0;
         }
 
         void ShowResult(char output[]) {
-            if (output == "-time"){
+            if (strcmp(output, "-time") == 0 ){
                 cout << "Running time: " << this->run_time << endl;
             }
 
-            else if (output == "-comp"){
+            else if (strcmp(output, "-comp") == 0 ){
                 cout << "Comparisions: " << this->number_comparison << endl;
             }
 
@@ -47,14 +48,17 @@ class Algorithm : public Mode{
             }
         }
 
-        void Mode3(char* options){
-            this->createFileInput(this->input_size,options);
-            this->input_file = options;
-            this->input_order = ConvertOrder(options);
-            this->RunSort(agrv[2]);
+        void Mode3(char string[]){
+            char* oput = NULL;
+            oput = this->agrv[4];
+            this->agrv[4] = string;
+            this->createFileInput(this->input_size,this->agrv[4]+1);
+            this->input_file = this->agrv[4]+1;
+            this->input_order = this->agrv[4]+1;
             cout << "Input order: " << this->input_order << endl;
             cout << "----------------------------------------------------------------" << endl;
-            ShowResult(agrv[4]);
+            this->RunSort(this->agrv[2]);
+            ShowResult(oput);
             delete sort;
         }
 
@@ -66,10 +70,12 @@ class Algorithm : public Mode{
             if ((int)agrv[3][0] >= (int)'0' && (int)agrv[3][0] <= (int)'9'){
                 this->input_size = stoi(agrv[3]);
                 cout << "Input size: " << this->input_size << endl;
-                if(agrv[4] == "-rand" || agrv[4] == "-sorted" || agrv[4] == "-nsorted" || agrv[4] == "-reverse"){
+                char* order = agrv[5];
+                //cout << "Order: " << order << endl;
+                if(strcmp(this->agrv[4],"-rand") == 0 || strcmp(this->agrv[4],"-sorted") == 0 || strcmp(this->agrv[4],"-nsorted") == 0 || strcmp(this->agrv[4],"-reverse") == 0){
                     this->createFileInput(this->input_size,agrv[4]+1);
                     this->input_file = agrv[4]+1;
-                    this->input_order = ConvertOrder(agrv[4]+1);
+                    this->input_order = agrv[4]+1;
                     cout << "Input order: " << this->input_order << endl;
                     cout << "----------------------------------------------------------------" << endl;
                     this->RunSort(agrv[2]);
@@ -77,14 +83,14 @@ class Algorithm : public Mode{
                     delete sort;
                 }
                 else{
-                    //random input
-                    Mode3("rand");
-                    //sorted input
-                    Mode3("sorted");
-                    //nearly sorted input
-                    Mode3("nsorted");
-                    //reverse input
-                    Mode3("reverse");
+                    char string[] = "-rand";
+                    Mode3(string);
+                    char string_2[] = "-nsorted";
+                    Mode3(string_2);
+                    char string_3[] = "-sorted";
+                    Mode3(string_3);
+                    char string_4[] = "-reverse";
+                    Mode3(string_4);
                 }
             }
             else{
@@ -93,7 +99,7 @@ class Algorithm : public Mode{
                 RunSort(agrv[2]);
                 cout << "Input size: " << this->input_size << endl;
                 cout << "----------------------------------------------------------------" << endl;
-                ShowResult(agrv[4]);
+                ShowResult(this->agrv[4]);
                 delete sort;
             }
         }
