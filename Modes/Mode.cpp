@@ -57,12 +57,6 @@ protected:
             option = NearlySorted;
             filename = "input_4.txt";
             }
-        //char txtfilename[8];
-        //int i = 0;
-        //while(filename[i] != '\0') {
-         //   i++;
-        //}
-        //filename[i] = '.', filename[++i] = 't', filename[++i]='x', filename[++i]='t', filename[++i]='\0';
         GenerateData(size, (int)option, filename);
     }
 
