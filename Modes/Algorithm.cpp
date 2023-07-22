@@ -66,7 +66,7 @@ class Algorithm : public Mode{
 
         void Mode3(char string[]){
             this->agrv[4] = string;
-            this->createFileInput(this->input_size,this->agrv[4]+1);
+            this->createFileInput_algorithm(this->input_size,this->agrv[4]+1);
             this->input_file = inputfile(this->agrv[4]+1);
             this->input_order = ConvertOrder(this->agrv[4]);
             cout << endl;
@@ -86,7 +86,7 @@ class Algorithm : public Mode{
                 cout << "Input size: " << this->input_size << endl;
                 char* order = agrv[5];
                 if(strcmp(this->agrv[4],"-rand") == 0 || strcmp(this->agrv[4],"-sorted") == 0 || strcmp(this->agrv[4],"-nsorted") == 0 || strcmp(this->agrv[4],"-reverse") == 0){
-                    this->createFileInput(this->input_size,agrv[4]+1);
+                    this->createFileInput_algorithm(this->input_size,agrv[4]+1);
                     this->input_file = inputfile(this->agrv[4]+1);
                     this->input_order = ConvertOrder(this->agrv[4]);
                     cout << "Input order: " << this->input_order << endl;

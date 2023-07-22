@@ -35,7 +35,7 @@ class Comparison : public Mode{
             this->argv = argv;
             if((int)argv[4][0] >= (int)'0' and (int)argv[4][0] <= (int)'9') {
                 this->input_size = stoi(argv[4]);
-                this->createFileInput(this->input_size, argv[5]+1);
+                this->createFileInput_algorithm(this->input_size, argv[5]+1);
                 this->input_file = argv[5]+1;
             } else {
                 this->input_file=argv[4];

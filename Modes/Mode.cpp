@@ -39,7 +39,7 @@ protected:
         return size;
     }
 
-    void createFileInput(int size, char filename[]) {
+    void createFileInput_algorithm(int size, char filename[]) {
         GenerationType option;
         if(strcmp(filename, "rand") == 0) {
             option = Random;
