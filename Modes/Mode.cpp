@@ -39,19 +39,13 @@ protected:
         return size;
     }
 
-    void createFileInput(int size, char filename[]) {
+    void createFileInput(int size, char dataOptions[]) {
         GenerationType option;
-        if(strcmp(filename, "rand") == 0) option = Random;
-        else if(strcmp(filename, "sorted") == 0) option = Sorted;
-        else if(strcmp(filename, "reverse") == 0) option = Reverse;
-        else if(strcmp(filename, "nsorted") == 0) option = NearlySorted;
-        char txtfilename[8];
-        int i = 0;
-        while(filename[i] != '\0') {
-            i++;
-        }
-        filename[i] = '.', filename[++i] = 't', filename[++i]='x', filename[++i]='t', filename[++i]='\0';
-        GenerateData(size, (int)option, filename);
+        if(strcmp(dataOptions, "rand") == 0) option = Random;
+        else if(strcmp(dataOptions, "sorted") == 0) option = Sorted;
+        else if(strcmp(dataOptions, "rev") == 0) option = Reverse;
+        else if(strcmp(dataOptions, "nsorted") == 0) option = NearlySorted;
+        GenerateData(size, (int)option, (char*)"input.txt");
     }
 
     void getSortAlgorithm(const char* fileinput=NULL) {

@@ -19,16 +19,16 @@ class Algorithm : public Mode{
 
         char* ConvertOrder(char* order) {
             if(order == "rand"){
-                return "Randomize";
+                return (char*)"Randomize";
             }
             else if(order == "nsorted"){
-                return "Nearly Sorted";
+                return (char*)"Nearly Sorted";
             }
             else if(order == "sorted"){
-                return "Sorted";
+                return (char*)"Sorted";
             }
             else{
-                return "Reversed";
+                return (char*)"Reversed";
             }
         }
 
@@ -78,13 +78,13 @@ class Algorithm : public Mode{
                 }
                 else{
                     //random input
-                    Mode3("rand");
+                    Mode3((char*)"rand");
                     //sorted input
-                    Mode3("sorted");
+                    Mode3((char*)"sorted");
                     //nearly sorted input
-                    Mode3("nsorted");
+                    Mode3((char*)"nsorted");
                     //reverse input
-                    Mode3("reverse");
+                    Mode3((char*)"reverse");
                 }
             }
             else{

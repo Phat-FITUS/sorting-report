@@ -10,11 +10,11 @@ class Comparison : public Mode{
         char** argv = NULL;
         char* input_file = NULL;
         int input_size = -1;
-        int input_order = -1;
+        char* input_order = NULL;
 
         void RunSort(char *sort) {
             this->sortName = this->getSortName(sort);
-            this->getSortAlgorithm(this->input_file);
+            this->getSortAlgorithm(this->input_file?this->input_file:(char*)"input.txt");
             this->sort->Run(this->run_time, this->number_comparison);
         }
     protected:
@@ -24,7 +24,7 @@ class Comparison : public Mode{
             cout << "Algorithm: " << this->argv[2] << " | " << this->argv[3]<< endl;
             if(this->input_file) cout << "Input file: " << this->input_file << endl;
             cout << "Input size: " << this->input_size << endl;
-            if(this->input_order != -1) cout << "Input order: " << this->input_order << endl;
+            if(this->input_order) cout << "Input order: " << this->input_order << endl;
             cout << "-----------------------" << endl;
             cout << "Running time: " << this->run_time_0 << " | " << this->run_time << endl;
             cout << "Comparison: " << this->number_comparison_0 << " | " << this->number_comparison << endl;
@@ -36,7 +36,7 @@ class Comparison : public Mode{
             if((int)argv[4][0] >= (int)'0' and (int)argv[4][0] <= (int)'9') {
                 this->input_size = stoi(argv[4]);
                 this->createFileInput(this->input_size, argv[5]+1);
-                this->input_file = argv[5]+1;
+                this->input_order = argv[5]+1;
             } else {
                 this->input_file=argv[4];
                 this->input_size = this->getInputSize(this->input_file);
