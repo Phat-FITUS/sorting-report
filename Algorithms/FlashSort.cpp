@@ -24,7 +24,7 @@ class FlashSort : public Sort {
         void Handle(ull &countCompare) {
             int minVal = array[0];
             int max = 0;
-            int m = int(0.45 * size);
+            int m = int(0.43 * size);
             int* l = new int[m];
 
             for (int i = 0; ++countCompare && i < m; i++)
@@ -61,7 +61,7 @@ class FlashSort : public Sort {
             int count = 0;
             while (++countCompare && nmove < size - 1)
             {
-                while (++countCompare && j > l[k] - 1)
+                while (++count && ++countCompare && j > l[k] - 1)
                 {
                     j++;
                     k = int(c1*(array[j] - minVal));
