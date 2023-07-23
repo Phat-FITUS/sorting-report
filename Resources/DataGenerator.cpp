@@ -102,6 +102,4 @@ void GenerateData(int n, int option, const char filename[])
 	delete[] a;
 
 	fclose(file);
-
-	printf("Your Data file created successfully in the Input folder!\n");
 }

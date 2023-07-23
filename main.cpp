@@ -3,20 +3,62 @@
 #include "Modes/Mode.h"
 using namespace std;
 
-void Test() {
+void PrintTitle(int option) {
+    switch (option) {
+        case GenerationType::Random:
+            cout << "Random Data type:\n**********************\n\n";
+            break;
+        case GenerationType::Sorted:
+            cout << "Sorted Data type:\n**********************\n\n";
+            break;
+        case GenerationType::NearlySorted:
+            cout << "Nearly Sorted Data type:\n**********************\n\n";
+            break;
+        case GenerationType::Reverse:
+            cout << "Reverse Data type:\n**********************\n\n";
+            break;
+        default:
+            cout << "Data type option unknown! Use -help for more information!\n";
+            return;
+    }
+}
+
+void SortMeasure(Sort* sort, const char sortName[]) {
     ull compare, time;
+    sort->Run(time, compare);
+    delete sort;
 
-    FlashSort sort;
-    sort.Run(time, compare);
+    cout << sortName << " Sort:\nTime: " << time << "\nComparison: " << compare << "\n\n";
+}
 
-    cout << "Result stored in output.txt\n";
-    cout << "The algorithm executed in " << time << " miliseconds with " << compare << " comparisons\n";
+void Test(char option[]) {
+    PrintTitle(stoi(option));
+
+    int dataSize[] = {10000, 30000, 50000, 100000, 300000, 500000};
+
+    for (int& size: dataSize) {
+        GenerateData(size, stoi(option), "testing.txt");
+        cout << "SIZE: " << size << "\n----------------------------------\n";
+
+        SortMeasure(new BubbleSort("testing.txt"), "Bubble");
+        SortMeasure(new CountingSort("testing.txt"), "Counting");
+        SortMeasure(new FlashSort("testing.txt"), "Flash");
+        SortMeasure(new HeapSort("testing.txt"), "Heap");
+        SortMeasure(new InsertionSort("testing.txt"), "Insertion");
+        SortMeasure(new MergeSort("testing.txt"), "Merge");
+        SortMeasure(new QuickSort("testing.txt"), "Quick");
+        SortMeasure(new RadixSort("testing.txt"), "Radix");
+        SortMeasure(new SelectionSort("testing.txt"), "Selection");
+        SortMeasure(new ShakerSort("testing.txt"), "Shaker");
+        SortMeasure(new ShellSort("testing.txt"), "Shell");
+    }
+
 }
 
 int main(int argc, char* argv[]) {
     if (argc > 1) {
         if (strcmp(argv[1], "-test") == 0) {
-            Test();
+            Test(argv[2]);
             return 0;
         }
 

@@ -3,7 +3,6 @@
 
 #include "Mode.cpp"
 
-
 class Algorithm : public Mode{
     protected:
         char* input_file = NULL;
@@ -46,6 +45,7 @@ class Algorithm : public Mode{
                 cout << "Running time: " << this->run_time<<endl;
                 cout << "Number of comparisons: " << this->number_comparison<<endl;
             }
+            cout << '\n';
         }
 
         char* inputfile(char* filename)
