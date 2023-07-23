@@ -12,7 +12,7 @@ protected:
        		{
        			if (++count_compare && array[j + 1]  < array[j])
        			{
-       				swap(array[j+1], array[j]);
+       				std::swap(array[j+1], array[j]);
 				}
 			}
 	    }

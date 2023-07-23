@@ -53,7 +53,7 @@ class FlashSort : public Sort {
             for (int i = 1; ++countCompare && i < m; i++)
                 l[i] += l[i - 1];
 
-            swap(array[max], array[0]);
+            std::swap(array[max], array[0]);
             int nmove = 0;
             int j = 0;
             int k = m - 1;
@@ -73,7 +73,7 @@ class FlashSort : public Sort {
                 while (++countCompare && j != l[k])
                 {
                     k = int(c1*(array[flash] - minVal));
-                    swap(array[flash], array[--l[k]]);
+                    std::swap(array[flash], array[--l[k]]);
                     ++nmove;
                 }
             }

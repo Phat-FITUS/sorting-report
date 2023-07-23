@@ -6,6 +6,7 @@
 #include <iostream>
 #include <cmath>
 #include <time.h>
-#include<unistd.h>
+#include <unistd.h>
+#include <algorithm>
 
 #endif

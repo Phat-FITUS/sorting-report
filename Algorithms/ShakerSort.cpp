@@ -18,7 +18,7 @@ protected:
 			{
 				if (++count_compare && array[i + 1] < array[i])
 				{
-					swap(array[i + 1], array[i]);
+					std::swap(array[i + 1], array[i]);
 					flag = i;
 				}
 			}
@@ -29,7 +29,7 @@ protected:
 			{
 				if (++count_compare && array[i] < array[i - 1])
 				{
-					swap(array[i], array[i - 1]);
+					std::swap(array[i], array[i - 1]);
 					flag = i;
 				}
 			}

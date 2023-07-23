@@ -24,7 +24,7 @@ private:
 
 		if (++count_compare && largest != i)
 		{
-			swap(array[i], array[largest]);
+			std::swap(array[i], array[largest]);
 			MaxHeapify(largest, count_compare);
 		}
 	}
@@ -38,7 +38,7 @@ protected:
 
 		for (int i = size - 1; ++count_compare && i > 0; i--)
 		{
-			swap(array[0], array[i]);
+			std::swap(array[0], array[i]);
 			MaxHeapify(0, count_compare);
 		}
     }

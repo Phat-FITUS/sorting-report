@@ -20,13 +20,13 @@ class Algorithm : public Mode{
 
         char* ConvertOrder(char order[]) {
             if(strcmp(order, "-rand") == 0) {
-                return "Randomize";
+                return (char*)"Randomize";
             }
             else if(strcmp(order, "-nsorted") == 0){
-                return "Nearly sorted";
+                return (char*)"Nearly sorted";
             }
             else if(strcmp(order, "-sorted") == 0){
-                return "Sorted";
+                return (char*)"Sorted";
             }
             else{
                 return (char*)"Reversed";
@@ -50,18 +50,20 @@ class Algorithm : public Mode{
 
         char* inputfile(char* filename)
         {
+            char* res = new char[12];
             if(strcmp(filename, "rand") == 0) {
-                return "input_1.txt";
+                strcpy(res, "input_1.txt");
             }
             else if(strcmp(filename, "nsorted") == 0){
-                return "input_2.txt";
+                strcpy(res, "input_2.txt");
             }
             else if(strcmp(filename, "sorted") == 0){
-                return "input_3.txt";
+                strcpy(res, "input_3.txt");
             }
             else{
-                return "input_4.txt";
+                strcpy(res, "input_4.txt");
             }
+            return res;
         }
 
         void Mode3(char string[]){
@@ -77,23 +79,25 @@ class Algorithm : public Mode{
   
         void createFileInput_algorithm(int size, char filename[]) {
             GenerationType option;
+            char file[4][12] = {"input_1.txt", "input_2.txt", "input_3.txt", "input_4.txt"};
+            int choose = -1;
             if(strcmp(filename, "rand") == 0) {
                 option = Random;
-                filename = "input_1.txt";
+                choose = 0;
             }
             else if(strcmp(filename, "sorted") == 0) {
                 option = Sorted;
-                filename = "input_2.txt";
+                choose = 1;
             }
-            else if(strcmp(filename, "reverse") == 0) {
+            else if(strcmp(filename, "rev") == 0) {
                 option = Reverse;
-                filename = "input_3.txt";
+                choose = 2;
             }
             else if(strcmp(filename, "nsorted") == 0) {
                 option = NearlySorted;
-                filename = "input_4.txt";
+                choose = 3;
             }
-            GenerateData(size, (int)option, filename);
+            GenerateData(size, (int)option, file[choose]);
         }
 
 
@@ -106,7 +110,7 @@ class Algorithm : public Mode{
                 this->input_size = stoi(agrv[3]);
                 cout << "Input size: " << this->input_size << endl;
                 char* order = agrv[5];
-                if(strcmp(this->agrv[4],"-rand") == 0 || strcmp(this->agrv[4],"-sorted") == 0 || strcmp(this->agrv[4],"-nsorted") == 0 || strcmp(this->agrv[4],"-reverse") == 0){
+                if(strcmp(this->agrv[4],"-rand") == 0 || strcmp(this->agrv[4],"-sorted") == 0 || strcmp(this->agrv[4],"-nsorted") == 0 || strcmp(this->agrv[4],"-rev") == 0){
                     this->createFileInput_algorithm(this->input_size,agrv[4]+1);
                     this->input_file = inputfile(this->agrv[4]+1);
                     this->input_order = ConvertOrder(this->agrv[4]);
@@ -131,7 +135,7 @@ class Algorithm : public Mode{
                     Mode3(string_3);
                     ShowResult(oput);
                     delete sort;
-                    char string_4[] = "-reverse";
+                    char string_4[] = "-rev";
                     Mode3(string_4);
                     ShowResult(oput);
                 }

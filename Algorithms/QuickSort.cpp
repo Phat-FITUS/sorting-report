@@ -13,13 +13,13 @@ class QuickSort : public Sort {
                 while(++countCompare && array[r] > array[pivot] && l <=r) r--;
                 if(l <= r) {
                     countCompare++;
-                    swap(array[l], array[r]);
+                    std::swap(array[l], array[r]);
                     l++;
                     r--;
                 }
             }
 
-            swap(array[l], array[pivot]);
+            std::swap(array[l], array[pivot]);
 
             return l;
         }
