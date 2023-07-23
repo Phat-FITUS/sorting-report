@@ -5,7 +5,7 @@
 #include "../Definitions/GenerationType.cpp"
 #include "../Definitions/SortAlgorithm.cpp"
 #include "../Algorithms/Sort.h"
-// #include "../Resources/DataGenerator.cpp"
+#include "../Resources/DataGenerator.cpp"
 
 class Mode {
 private:
