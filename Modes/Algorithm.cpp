@@ -29,7 +29,7 @@ class Algorithm : public Mode{
                 return "Sorted";
             }
             else{
-                return "Reversed";
+                return (char*)"Reversed";
             }
         }
 
@@ -73,6 +73,27 @@ class Algorithm : public Mode{
             cout << "Input order: " << this->input_order << endl;
             cout << "----------------------------------------------------------------" << endl;
             this->RunSort(this->agrv[2]);
+        }
+  
+        void createFileInput_algorithm(int size, char filename[]) {
+            GenerationType option;
+            if(strcmp(filename, "rand") == 0) {
+                option = Random;
+                filename = "input_1.txt";
+            }
+            else if(strcmp(filename, "sorted") == 0) {
+                option = Sorted;
+                filename = "input_2.txt";
+            }
+            else if(strcmp(filename, "reverse") == 0) {
+                option = Reverse;
+                filename = "input_3.txt";
+            }
+            else if(strcmp(filename, "nsorted") == 0) {
+                option = NearlySorted;
+                filename = "input_4.txt";
+            }
+            GenerateData(size, (int)option, filename);
         }
 
 

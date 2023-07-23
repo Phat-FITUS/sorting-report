@@ -5,7 +5,7 @@
 #include "../Definitions/GenerationType.cpp"
 #include "../Definitions/SortAlgorithm.cpp"
 #include "../Algorithms/Sort.h"
-// #include "../Resources/DataGenerator.cpp"
+#include "../Resources/DataGenerator.cpp"
 
 class Mode {
 private:
@@ -39,25 +39,13 @@ protected:
         return size;
     }
 
-    void createFileInput_algorithm(int size, char filename[]) {
+    void createFileInput(int size, char dataOptions[]) {
         GenerationType option;
-        if(strcmp(filename, "rand") == 0) {
-            option = Random;
-            filename = "input_1.txt";
-            }
-        else if(strcmp(filename, "sorted") == 0) {
-            option = Sorted;
-            filename = "input_2.txt";
-            }
-        else if(strcmp(filename, "reverse") == 0) {
-            option = Reverse;
-            filename = "input_3.txt";
-            }
-        else if(strcmp(filename, "nsorted") == 0) {
-            option = NearlySorted;
-            filename = "input_4.txt";
-            }
-        GenerateData(size, (int)option, filename);
+        if(strcmp(dataOptions, "rand") == 0) option = Random;
+        else if(strcmp(dataOptions, "sorted") == 0) option = Sorted;
+        else if(strcmp(dataOptions, "rev") == 0) option = Reverse;
+        else if(strcmp(dataOptions, "nsorted") == 0) option = NearlySorted;
+        GenerateData(size, (int)option, (char*)"input.txt");
     }
 
     void getSortAlgorithm(const char* fileinput=NULL) {
