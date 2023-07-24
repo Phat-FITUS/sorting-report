@@ -6,19 +6,19 @@ using namespace std;
 void PrintTitle(int option) {
     switch (option) {
         case GenerationType::Random:
-            cout << "Random Data type:\n**********************\n\n";
+            cout << "\nRandom Data type:\n**********************\n\n";
             break;
         case GenerationType::Sorted:
-            cout << "Sorted Data type:\n**********************\n\n";
+            cout << "\nSorted Data type:\n**********************\n\n";
             break;
         case GenerationType::NearlySorted:
-            cout << "Nearly Sorted Data type:\n**********************\n\n";
+            cout << "\nNearly Sorted Data type:\n**********************\n\n";
             break;
         case GenerationType::Reverse:
-            cout << "Reverse Data type:\n**********************\n\n";
+            cout << "\nReverse Data type:\n**********************\n\n";
             break;
         default:
-            cout << "Data type option unknown! Use -help for more information!\n";
+            cout << "\nData type option unknown! Use -help for more information!\n";
             return;
     }
 }
@@ -26,7 +26,6 @@ void PrintTitle(int option) {
 void SortMeasure(Sort* sort, const char sortName[]) {
     ull compare, time;
     sort->Run(time, compare);
-    delete sort;
 
     cout << sortName << " Sort:\nTime: " << time << "\nComparison: " << compare << "\n\n";
 }
