@@ -6,7 +6,7 @@
 class QuickSort : public Sort {
     private:
         int Partition(int left, int right, ull &countCompare) {
-            int l = left, r = right-1, pivot=right;
+            int l = left, r = right, pivot=(right+left)/2;
 
             while(++countCompare && l <= r) {
                 while(++countCompare && array[l] < array[pivot] && l <= r) l++;
