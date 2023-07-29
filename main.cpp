@@ -55,12 +55,12 @@ void Test(char option[]) {
 }
 
 void help() {
-    cout << "For testing purpose: [Execution File] -test [Data order]\n0: Random \n1: Sorted\n2: Nearly Sorted\n3: Reverse\n";
-    cout << "To run a sorting algorithm on the given input data:\n[Execution file] -a [Algorithm] [Given input] [Output parameter(s)]\n";
-    cout << "To run a sorting algorithm on the data generated automatically with specified size and order:\n[Execution file] -a [Algorithm] [Input size] [Input order] [Output parameter(s)]\n";
-    cout << "To run a sorting algorithm on ALL data arrangements of a specified size:\n[Execution file] -a [Algorithm] [Input size] [Output parameter(s)]\n";
-    cout << "To run two sorting algorithms on the given input:\n[Execution file] -c [Algorithm 1] [Algorithm 2] [Given input]\n";
-    cout << "To run two sorting algorithms on the data generated automatically:\n[Execution file] -c [Algorithm 1] [Algorithm 2] [Input size] [Input order]\n";
+	cout << "For testing purpose: [Execution File] -test [Data order]\n0: Random \n1: Sorted\n2: Nearly Sorted\n3: Reverse\n\n";
+    cout << "To run a sorting algorithm on the given input data:\n[Execution file] -a [Algorithm] [Given input] [Output parameter(s)]\n\n";
+    cout << "To run a sorting algorithm on the data generated automatically with specified size and order:\n[Execution file] -a [Algorithm] [Input size] [Input order] [Output parameter(s)]\n\n";
+    cout << "To run a sorting algorithm on ALL data arrangements of a specified size:\n[Execution file] -a [Algorithm] [Input size] [Output parameter(s)]\n\n";
+    cout << "To run two sorting algorithms on the given input:\n[Execution file] -c [Algorithm 1] [Algorithm 2] [Given input]\n\n";
+    cout << "To run two sorting algorithms on the data generated automatically:\n[Execution file] -c [Algorithm 1] [Algorithm 2] [Input size] [Input order]\n\n";
 }
 
 int main(int argc, char* argv[]) {
